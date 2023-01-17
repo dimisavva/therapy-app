@@ -1,17 +1,17 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
-// const entrySchema = new Schema({
-//   name: String
-//   mood: String
-//   owner: {type: Schema.ObjectId, ref: "Profile"}
-// }, {
-//   timestamps: true
-// })
+const activitySchema = new Schema({
+  name: String,
+  enum: ['Physical', 'Mental', 'Spiritual', 'Psycological'],
+  owner: {type: Schema.Types.ObjectId, ref: 'Entry'}
+}, {
+  timestamps: true
+})
 
-// const Entry = mongoose.model{'Entry', entrySchema}
+const Entry = mongoose.model('Activity', entrySchema)
 
-// export{
-//   Entry
-// }
+export{
+  Activity
+}
