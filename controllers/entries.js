@@ -1,7 +1,10 @@
-import { Entry } from '../models/taco.js'
+import { Entry } from '../models/entry.js'
 
 function index(req, res){
-  console.log("Entry")
+Entry.find({})
+.then(entries => {
+  res.render('entries/index')
+})
 }
 
 export{

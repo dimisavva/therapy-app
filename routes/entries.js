@@ -1,8 +1,9 @@
 import { Router } from 'express'
+import * as entriesCtrl from '../controllers/entries.js'
 
 const router = Router()
 
-//GET /intries
+//GET /entries
 router.get('/', entriesCtrl.index)
 
 export {
