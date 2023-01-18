@@ -13,7 +13,28 @@
     </div>
   <% } %>      
  <section>
-  <h1> New entry form: </h1>
+  <h1>  </h1>
+  <section>
+    <%# New Code Below %>
+    <% if (user) { %>
+      <form action="/entries" method="POST">
+        <div>
+          <label for=" content-textarea" class="review-label">Type Entry Here:</label> 
+          <textarea name="content" id= "content-textarea"></textarea>
+          </div>
+        <label>
+          Need Provider's Help
+          <input type="checkbox" name="help">
+        </label>
+        <label for="mood-rating">Rate Your Mood:</label>
+        <select name="Rate Your Mood" id="mood-rating">  
+        <option value="Happy">Happy</option>
+        <option value="Content">Content</option>
+        <option value="Sad">Sad</option>
+        </select>
+        <button type="submit">Add</button>
+      </form>
+    <% } %>
   <ul>
   <% entries.forEach(entry => { %>
   <li> 📝 <%= entry.name %> is <%= entry.read ? 'read' : 'not read' %> </li>
