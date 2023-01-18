@@ -60,9 +60,24 @@ function update(req, res) {
   })
 }
 
+function edit(req, res) {
+  Entry.findById(req.params.id)
+  .then(entry => {
+    res.render('entries/edit', {
+      entry,
+      title: 'edit '
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/entries')
+  })
+}
+
 export{
   index,
   create,
   show,
   update,
+  edit,
 }

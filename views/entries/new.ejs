@@ -15,7 +15,7 @@
  <section>
   <h1> New entry form: </h1>
   <ul>
-  <% entry.forEach(entry => { %>
+  <% entries.forEach(entry => { %>
   <li> 📝 <%= entry.name %> is <%= entry.read ? 'read' : 'not read' %> </li>
 <% }) %>
 </ul>     
