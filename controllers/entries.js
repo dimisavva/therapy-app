@@ -3,7 +3,7 @@ import { Entry } from '../models/entry.js'
 function index(req, res){
 Entry.find({})
 .then(entries => {
-  res.render('entries/index', {
+  res.render('entries/new', {
     entries,
     title: "Add Entry", 
   })
@@ -26,7 +26,23 @@ function create(req, res) {
   })
 }
 
+function show(req, res) {
+  Entry.findById(req.params.id)
+  .populate('owner')
+  .then(taco => {
+    res.render('entries/show', {
+      title: "🌮 show",
+      entry
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/entries')
+  })
+}
 
 export{
-  index
+  index,
+  create,
+  show,
 }
