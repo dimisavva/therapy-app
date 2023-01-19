@@ -16,7 +16,8 @@ Entry.find({})
 
 function create(req, res) {
   req.body.owner = req.user.profile._id
-  Entries.create(req.body)
+  req.body.help = !!req.body.help
+  Entry.create(req.body)
   .then(entry => {
     res.redirect('/entries')
   })
@@ -29,7 +30,7 @@ function create(req, res) {
 function show(req, res) {
   Entry.findById(req.params.id)
   .populate('owner')
-  .then(taco => {
+  .then(entry => {
     res.render('entries/show', {
       title:  "show",
       entry

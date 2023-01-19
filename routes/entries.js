@@ -7,8 +7,8 @@ const router = Router()
 //GET /entries
 router.get('/', entriesCtrl.index)
 router.get('/:id', entriesCtrl.show)
-router.post('/:id/edit', isLoggedIn, entriesCtrl.edit)
 router.post('/', isLoggedIn, entriesCtrl.create)
+router.post('/:id/edit', isLoggedIn, entriesCtrl.edit)
 router.put('/edit', entriesCtrl.update)
 
 export {

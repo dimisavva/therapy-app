@@ -37,7 +37,10 @@
     <% } %>
   <ul>
   <% entries.forEach(entry => { %>
-  <li> 📝 <%= entry.name %> is <%= entry.read ? 'read' : 'not read' %> </li>
+  <li> 
+    📝 
+  <a href="/tacos/<%= entry._id %>"><%= entry.name %> </a> <%= entry.help ? 'needs help' : 'does not need help' %> 
+  </li>
 <% }) %>
 </ul>     
 </section>                      
