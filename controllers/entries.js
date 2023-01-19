@@ -15,8 +15,8 @@ Entry.find({})
 }
 
 function create(req, res) {
-  req.body.owner = req.user.profile._id
   req.body.help = !!req.body.help
+  req.body.owner = req.user.profile._id
   Entry.create(req.body)
   .then(entry => {
     res.redirect('/entries')
@@ -32,7 +32,7 @@ function show(req, res) {
   .populate('owner')
   .then(entry => {
     res.render('entries/show', {
-      title:  "show",
+      title: "show",
       entry
     })
   })

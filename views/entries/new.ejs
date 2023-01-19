@@ -20,18 +20,19 @@
       <form action="/entries" method="POST">
         <div>
           <label for=" content-textarea" class="review-label">Type Entry Here:</label> 
-          <textarea name="content" id= "content-textarea"></textarea>
-          </div>
+          <textarea name="name" id= "name-textarea"></textarea> 
+          <!-- will id= work here? -->
+        </div>
+        <label for="mood-rating">Rate Your Mood:</label>
+          <select name="Rate Your Mood" id="mood-rating">  
+          <option value="Happy">Happy</option>
+          <option value="Content">Content</option>
+          <option value="Sad">Sad</option>
+          </select>
         <label>
           Need Provider's Help
           <input type="checkbox" name="help">
         </label>
-        <label for="mood-rating">Rate Your Mood:</label>
-        <select name="Rate Your Mood" id="mood-rating">  
-        <option value="Happy">Happy</option>
-        <option value="Content">Content</option>
-        <option value="Sad">Sad</option>
-        </select>
         <button type="submit">Add</button>
       </form>
     <% } %>
@@ -39,7 +40,8 @@
   <% entries.forEach(entry => { %>
   <li> 
     📝 
-  <a href="/tacos/<%= entry._id %>"><%= entry.name %> </a> <%= entry.help ? 'needs help' : 'does not need help' %> 
+  <a href="/entries/<%= entry._id %>">
+    <%= entry.name %> </a> <%= entry.help ? 'needs help' : 'does not need help' %> 
   </li>
 <% }) %>
 </ul>     

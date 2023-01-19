@@ -1,3 +1,13 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="../stylesheets/index.css">
+<%- include('../partials/nav') %>
+
+<Section>
+  <p><%= entry.owner.name%>... </p>
+  <p>Entry Details:</p>
+  <h1><%= entry.name %> </h1>
+  <h2> Patient indicted that <%= entry.help ? 'needs help' : 'does not need help' %> from their provider. </h2>
+</Section>
 <!-- <a href="/entries/edit">
   <%- title === 'EDIT' ? 'class="active"' : ''  %>
   <button>
@@ -11,3 +21,5 @@
     DELETE
 </button>
 </a> -->
+
+<%- include('../partials/footer') %>
