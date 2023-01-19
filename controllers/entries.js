@@ -42,11 +42,31 @@ function show(req, res) {
   })
 }
 
+function flipHelp(req, res) {
+  // find the entry
+  Entry.findById(req.params.id)
+  .then(taco => {
+    // flip the help
+    entry.help = !entry.help
+    // save the entry
+    entry.save()
+    .then(() => {
+      // redirect
+      res.redirect(`/entries/${entry._id}`)
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/entries')
+  })
+}
+
 function update(req, res) {
   Entry.findById(req.params.id)
   .then(entry => {
+    console.log('update function works')
     if (entry.owner.equals(req.user.profile._id)) {
-      req.body.entry = !!req.body.entry
+      // req.body.entry = !!req.body.entry
       entry.updateOne(req.body)
       .then(()=> {
         res.redirect(`/entry/${entry._id}`)
@@ -81,4 +101,5 @@ export{
   show,
   update,
   edit,
+  flipHelp,
 }

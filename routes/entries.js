@@ -6,10 +6,12 @@ const router = Router()
 
 //GET /entries
 router.get('/', entriesCtrl.index)
+// router.get('/', entriesCtrl.new)
 router.get('/:id', entriesCtrl.show)
+router.get('/:id/edit', isLoggedIn, entriesCtrl.edit)
 router.post('/', isLoggedIn, entriesCtrl.create)
-router.post('/:id/edit', isLoggedIn, entriesCtrl.edit)
-router.put('/edit', entriesCtrl.update)
+router.patch('/:id/flip-help', isLoggedIn, entriesCtrl.flipHelp)
+router.put('/:id', isLoggedIn, entriesCtrl.update)
 
 export {
   router
