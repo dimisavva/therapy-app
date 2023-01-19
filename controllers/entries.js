@@ -95,6 +95,23 @@ function update(req, res) {
   })
 }
 
+function deleteEntry(req, res) {
+  Entry.findById(req.params.id)
+  .then(entry => {
+    if (entry.owner.equals(req.user.profile._id)) {
+      entry.delete()
+      .then(()=> {
+        res.redirect(`/entries`)
+      })
+    } else {
+      throw new Error('🚫 Not authorized 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
 
 export{
   index,
@@ -103,4 +120,5 @@ export{
   update,
   edit,
   flipHelp,
+  deleteEntry as delete,
 }

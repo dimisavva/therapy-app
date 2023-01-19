@@ -12,7 +12,7 @@ router.get('/:id/edit', isLoggedIn, entriesCtrl.edit)
 router.post('/', isLoggedIn, entriesCtrl.create)
 router.patch('/:id/flip-help', isLoggedIn, entriesCtrl.flipHelp)
 router.put('/:id', isLoggedIn, entriesCtrl.update)
-router.delete('/:id', isLoggedIn, entries.delete)
+router.delete('/:id', isLoggedIn, entriesCtrl.delete)
 
 export {
   router
