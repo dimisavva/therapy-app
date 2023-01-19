@@ -61,6 +61,20 @@ function flipHelp(req, res) {
   })
 }
 
+function edit(req, res) {
+  Entry.findById(req.params.id)
+  .then(entry => {
+    res.render('entries/edit', {
+      entry,
+      title: 'edit'
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/entries')
+  })
+}
+
 function update(req, res) {
   Entry.findById(req.params.id)
   .then(entry => {
@@ -69,7 +83,7 @@ function update(req, res) {
       // req.body.entry = !!req.body.entry
       entry.updateOne(req.body)
       .then(()=> {
-        res.redirect(`/entry/${entry._id}`)
+        res.redirect(`/entries/${entry._id}`)
       })
     } else {
       throw new Error('🚫 Not authorized 🚫')
@@ -81,19 +95,6 @@ function update(req, res) {
   })
 }
 
-function edit(req, res) {
-  Entry.findById(req.params.id)
-  .then(entry => {
-    res.render('entries/edit', {
-      entry,
-      title: 'edit '
-    })
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect('/entries')
-  })
-}
 
 export{
   index,
