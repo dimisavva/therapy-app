@@ -23,7 +23,7 @@ function create(req, res) {
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/entries')
+    res.redirect('/')
   })
 }
 
@@ -38,7 +38,7 @@ function show(req, res) {
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/entries')
+    res.redirect('/')
   })
 }
 
@@ -57,7 +57,7 @@ function flipHelp(req, res) {
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/entries')
+    res.redirect('/')
   })
 }
 
@@ -71,7 +71,7 @@ function edit(req, res) {
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/entries')
+    res.redirect('/')
   })
 }
 
@@ -91,7 +91,7 @@ function update(req, res) {
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/entries')
+    res.redirect('/')
   })
 }
 

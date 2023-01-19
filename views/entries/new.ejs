@@ -35,16 +35,16 @@
         </label>
         <button type="submit">Add</button>
       </form>
-    <% } %>
-  <ul>
-  <% entries.forEach(entry => { %>
-  <li> 
-    📝 
-  <a href="/entries/<%= entry._id %>">
-    <%= entry.name %> </a> <%= entry.help ? 'need help' : 'do not need help' %> 
-  </li>
-<% }) %>
-</ul>     
+      <ul>
+        <% entries.forEach(entry => { %>
+          <li> 
+            📝 
+            <a href="/entries/<%= entry._id %>">
+              <%= entry.name %> </a> <%= entry.help ? 'need help' : 'do not need help' %> 
+            </li>
+            <% }) %>
+          </ul>     
+          <% } %>
 </section>                      
 </main>
 
