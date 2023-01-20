@@ -1,7 +1,7 @@
-import { activity } from '../models/activity.js'
+import { Activity } from '../models/activity.js'
 
 function index(req, res){
-activity.find({})
+Activity.find({})
 .then(activities => {
   res.render('activities/new', {
     activities,
@@ -17,7 +17,7 @@ activity.find({})
 function create(req, res) {
   req.body.help = !!req.body.help
   req.body.owner = req.user.profile._id
-  activity.create(req.body)
+  Activity.create(req.body)
   .then(activity => {
     res.redirect('/activities')
   })

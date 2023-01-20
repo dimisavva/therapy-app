@@ -10,7 +10,7 @@ const activitySchema = new Schema({
   timestamps: true
 })
 
-const Entry = mongoose.model('Activity', entrySchema)
+const Activity = mongoose.model('Activity', entrySchema)
 
 export{
   Activity

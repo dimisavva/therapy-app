@@ -7,7 +7,7 @@ const entrySchema = new Schema({
   mood: [String],
   help: Boolean,
   date: Number,
-  activities: {type: Schema.Types.ObjectId, ref: 'Activity'}
+  activity: {type: Schema.Types.ObjectId, ref: 'Activity'},
   owner: {type: Schema.Types.ObjectId, ref: 'Profile'}
 }, {
   timestamps: true
