@@ -1,0 +1,41 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <h1>Edit your entry </h1>
+  <form 
+    action="/entries/<%= entry._id %>?_method=PUT"
+    method="POST"
+  >
+
+  
+    <section>
+      <form 
+        action="/entries/<%= entry._id %>?_method=PUT"
+        method="POST"
+      >
+      <div>
+        <label for=" content-textarea" class="review-label">Type Entry Here:</label> 
+      </div>
+      <label>
+        <textarea 
+          type="text"
+          name="name" 
+          autocomplete="off"
+        ><%= entry.name %></textarea>
+      </label>
+      <label for="mood-rating">Rate Your Mood:</label>
+        <select name="mood" id="mood-rating">  
+        <option value="none" selected disabled hidden><%= entry.mood %> </option>
+        <option value="Happy">Happy</option>
+        <option value="Content">Content</option>
+        <option value="Sad">Sad</option>
+        </select>
+      
+    
+
+    <button type="submit">Edit your entry</button>
+  </form>
+</section>
+
+<%- include('../partials/footer') %>
