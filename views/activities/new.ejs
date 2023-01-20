@@ -3,7 +3,7 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1> <%= user ? `${user.profile.name}, please add your new entry below:`  : `Please Log In to view entries.` %></h1>
+  <h1> <%= user ? `${user.profile.name}, please add activity below:`  : `Please Log In to view activities.` %></h1>
   <% if (user?.profile.avatar) { %>
     <div>
       <img
@@ -17,35 +17,36 @@
   <section>
     <%# New Code Below %>
     <% if (user) { %>
-      <form action="/entries" method="POST">
+      <form action="/activities" method="POST">
         <div>
-          <label for=" content-textarea" class="review-label">Type Entry Here:</label> 
+          <label for=" content-textarea" class="review-label">Type Activity Here:</label> 
           <textarea name="name" id= "name-textarea"></textarea> 
           <!-- will id= work here? -->
         </div>
-        <label for="mood-rating">Rate Your Mood:</label>
-          <select name="mood" id="mood-rating">  
-          <option value="Happy">Happy</option>
-          <option value="Content">Content</option>
-          <option value="Sad">Sad</option>
+        <label for="activity-type">Activity Type:</label>
+          <select name="type" id="activity-type">  
+          <option value="Physical">Physical</option>
+          <option value="Mental">Mental</option>
+          <option value="Spiritual">Spiritual</option>
+          <option value="Psycological">Psycological</option>
           </select>
-        <label>
+        <!-- <label>
           Need Provider's Help
           <input type="checkbox" name="help">
-        </label>
+        </label> -->
         <button type="submit">Add</button>
       </form>
       <ul>
-        <% entries.forEach(entry => { %>
+        <% activities.forEach(activity => { %>
           <li> 
-            📝 
-            <a href="/entries/<%= entry._id %>"> <%= entry.name %> </a>
-            <%= entry.help ? 'need help' : 'do not need help' %> 
-              <p>Your mood for this entry: <%= entry.mood %> </p>
-            </li>
-            <% }) %>
-          </ul>     
-          <% } %>
+            🏂
+            <a href="/activities/<%= activity._id %>"> <%= activity.name %> </a>
+            <!-- <= activity.help ? 'need help' : 'do not need help' %>  -->
+            <p>Activity type: <%= activity.type %> </p>
+          </li>
+          <% }) %>
+      </ul>     
+      <% } %>
 </section>                      
 </main>
 

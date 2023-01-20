@@ -4,13 +4,13 @@ const Schema = mongoose.Schema
 
 const activitySchema = new Schema({
   name: [String],
-  enum: ['Physical', 'Mental', 'Spiritual', 'Psycological'],
+  type: [String],
   owner: {type: Schema.Types.ObjectId, ref: "Entry"}
 }, {
   timestamps: true
 })
 
-const Activity = mongoose.model('Activity', entrySchema)
+const Activity = mongoose.model('Activity', activitySchema)
 
 export{
   Activity

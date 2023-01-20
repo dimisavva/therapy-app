@@ -21,7 +21,6 @@
         <div>
           <label for=" content-textarea" class="review-label">Type Entry Here:</label> 
           <textarea name="name" id= "name-textarea"></textarea> 
-          <!-- will id= work here? -->
         </div>
         <label for="mood-rating">Rate Your Mood:</label>
           <select name="mood" id="mood-rating">  
@@ -37,6 +36,7 @@
       </form>
       <ul>
         <% entries.forEach(entry => { %>
+        <!-- compare user id to entry.owner._id -->
           <li> 
             📝 
             <a href="/entries/<%= entry._id %>"> <%= entry.name %> </a>

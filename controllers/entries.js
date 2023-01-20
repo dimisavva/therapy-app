@@ -18,6 +18,7 @@ function create(req, res) {
   req.body.help = !!req.body.help
   req.body.owner = req.user.profile._id
   Entry.create(req.body)
+  // .populate('owner')
   .then(entry => {
     res.redirect('/entries')
   })
