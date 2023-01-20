@@ -5,7 +5,7 @@ Activity.find({})
 .then(activities => {
   res.render('activities/new', {
     activities,
-    title: "Add activity", 
+    title: "Add Activity", 
   })
 })
 .catch(err => {
