@@ -45,7 +45,7 @@ function show(req, res) {
 function flipHelp(req, res) {
   // find the entry
   Entry.findById(req.params.id)
-  .then(taco => {
+  .then(entry => {
     // flip the help
     entry.help = !entry.help
     // save the entry
@@ -96,6 +96,7 @@ function update(req, res) {
 }
 
 function deleteEntry(req, res) {
+  // console.log("FUNCTION DELETE ENTRY IS RUNNING")
   Entry.findById(req.params.id)
   .then(entry => {
     if (entry.owner.equals(req.user.profile._id)) {

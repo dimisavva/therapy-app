@@ -5,6 +5,7 @@ const Schema = mongoose.Schema
 const entrySchema = new Schema({
   name: String,
   mood: [String],
+  help: Boolean,
   date: Number,
   activity: [String],
   owner: {type: Schema.Types.ObjectId, ref: 'Profile'}
