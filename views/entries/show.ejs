@@ -1,39 +1,55 @@
 <!-- VIEW FOR INDIVIDUAL ENTRY BASED ON OWNER AND ENTRY ID -->
 <%- include('../partials/html-head') %>
-  <link rel="stylesheet" href="../stylesheets/index.css">
-  <%- include('../partials/nav') %>
+  <!-- <link rel="stylesheet" href="../stylesheets/style.css"> -->
+<%- include('../partials/nav') %>
 
-    <Section>
-      <p>User: <%= entry.owner.name%>
+<Section>
+  <div class="user-name">
+        <p>
+          User: 
+          <hr> 
+          <div>
+            <img  class="user-avatar"
+              src="<%= user.profile.avatar %>"
+              alt="<%= user.profile.name %> avatar"
+            />
+          </div>
+        </p>
+  </div>
+  <div>
+  
+  </div>
+  <div class="entry-details">
+      <p>
+         Entry Details:
       </p>
-      <div class="entry-details">
-        <p>Entry Details:</p>
-        <h1>
-          <%= entry.name %>
-        </h1>
-
+    <h1>
+      <hr>
+      <%= entry.name %>
+    </h1>
         <% if (user) { %>
           <form action="/entries/<%= entry._id %>/flip-help?_method=PATCH" method="POST">
             <button class="btn" type="submit">
               You indicted that you <%= entry.help ? 'need help' : 'do not need help' %>
             </button>
           </form>
-          <% } %>
-      </Section>
-      <p>Your mood for this entry: <%= entry.mood %>
+        <% } %>
+      <p>
+        Your mood for this entry: <%= entry.mood %>
       </p>
-    </div>
-      <a href="/entries/<%= entry._id %>/edit">
-        <%- title==='EDIT' ? 'class="active"' : '' %>
-        <button>
-          EDIT
-        </button>
+  </div>
+  <div class="edit-delete-buttons">
+    <a href="/entries/<%= entry._id %>/edit">
+      <%- title==='EDIT' ? 'class="active"' : '' %>
+      <button>
+        EDIT
+      </button>
     </a>
-
     <form action="/entries/<%= entry._id %>?_method=DELETE" method="POST">
       <button class="btn" type="submit">
         DELETE
       </button>
     </form>
-
-    <%- include('../partials/footer') %>
+  </div>
+</Section>
+<%- include('../partials/footer') %>

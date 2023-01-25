@@ -20,6 +20,24 @@ body {
   margin: 0;
 }
 
+.user-avatar{
+margin: auto;
+padding: 2%;
+size: 10px;
+text-align: center;
+
+}
+
+.user-name {
+  margin: auto;
+  width: 5%;
+  text-align: center;
+  color: #1a1a1a;
+  border-radius: 45px;
+  height: 15%;
+  padding: 2px;
+}
+
 .entry-details{
   margin: auto;
   width: 50%;
@@ -46,7 +64,11 @@ button {
   padding: 10px;
   border-radius: 5px;
   background-color: white;
+}
 
+.edit-delete-buttons{
+  margin: auto;
+  text-align: center;
 }
 
 #logout{

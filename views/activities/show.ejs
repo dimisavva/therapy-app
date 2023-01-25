@@ -1,30 +1,45 @@
 <!-- VIEW FOR INDIVIDUAL ENTRY BASED ON OWNER AND ENTRY ID -->
 <%- include('../partials/html-head') %>
   <link rel="stylesheet" href="../stylesheets/index.css">
-<%- include('../partials/nav') %>
+  <%- include('../partials/nav') %>
 
-    <Section>
-      <p>
-        User: <%= activity.owner.name%>
-      </p>
-      <div class="activity-details">
-        <p>
-          Entry Details:
-        </p>
-        <hr>
-        <h1>
-          <%= activity.name %>
-        </h1>
-        <h3>
-          Type: <%= activity.type %>
-        </h3>
+<Section>
+  <div class="user-name">
+    <p>
+      User: 
+      <hr> 
+      <% if (activity.owner.equals(user?.profile._id)) { %>
+      <div>
+        <img  class="user-avatar"
+          src="<%= user.profile.avatar %>"
+          alt="<%= user.profile.name %> avatar"
+        />
       </div>
+      <% } %> 
+    </p>
+  </div>
+  <div>
 
-      <% if (user) { %>
-        <form action="/activities/<%= activity._id %>/flip-help?_method=PATCH" method="POST">
-        </form>
-        <% } %>
-    </Section>
+  </div>
+  <div class="activity-details">
+    <p>
+      Activity Details:
+    </p>
+    <h1>
+      <hr>
+       <%= activity.name %>
+    </h1>
+    <h3>
+      Type: <%= activity.type %>
+    </h3>
+  </div>
+
+  <% if (user) { %>
+      <form action="/activities/<%= activity._id %>/flip-help?_method=PATCH" method="POST">
+      </form>
+  <% } %>
+</Section>
+  <div class="edit-delete-buttons">
     <% if (activity.owner.equals(user?.profile._id)) { %>
       <a href="/activities/<%= activity._id %>/edit">
         <%- title==='EDIT' ? 'class="active"' : '' %>
@@ -32,11 +47,11 @@
             EDIT
           </button>
       </a>
-
-      <form action="/activities/<%= activity._id %>?_method=DELETE" method="POST">
-        <button class="btn" type="submit">
-          DELETE
-        </button>
-      </form>
+        <form action="/activities/<%= activity._id %>?_method=DELETE" method="POST">
+          <button class="btn" type="submit">
+            DELETE
+          </button>
+        </form>
       <% } %>
-        <%- include('../partials/footer') %>
+  </div>    
+<%- include('../partials/footer') %>
