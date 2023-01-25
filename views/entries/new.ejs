@@ -37,12 +37,14 @@
       <ul>
         <% entries.forEach(entry => { %>
         <!-- compare user id to entry.owner._id -->
+        <% if (entry.owner.equals(user?.profile._id)){%>  
           <li> 
             📝 
             <a href="/entries/<%= entry._id %>"> <%= entry.name %> </a>
             <%= entry.help ? 'need help' : 'do not need help' %> 
               <p>Your mood for this entry: <%= entry.mood %> </p>
             </li>
+            <% } %> 
             <% }) %>
           </ul>     
           <% } %>

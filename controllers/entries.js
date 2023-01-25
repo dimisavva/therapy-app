@@ -2,10 +2,12 @@ import { Entry } from '../models/entry.js'
 
 function index(req, res){
 Entry.find({})
+.populate("owner")
 .then(entries => {
   res.render('entries/new', {
     entries,
     title: "Add Entry", 
+    userId: entries.owner  
   })
 })
 .catch(err => {
@@ -20,6 +22,7 @@ function create(req, res) {
   Entry.create(req.body)
   // .populate('owner')
   .then(entry => {
+    console.log(entry)
     res.redirect('/entries')
   })
   .catch(err => {

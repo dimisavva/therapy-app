@@ -3,8 +3,8 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const activitySchema = new Schema({
-  name: [String],
-  type: [String],
+  name: String,
+  type: String,
   owner: {type: Schema.Types.ObjectId, ref: "Entry"}
 }, {
   timestamps: true

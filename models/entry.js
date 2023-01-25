@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 
 const entrySchema = new Schema({
   name: String,
-  mood: [String],
+  mood: Array,
   help: Boolean,
   date: Number,
   activity: {type: Schema.Types.ObjectId, ref: 'Activity'},
