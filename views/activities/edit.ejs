@@ -2,40 +2,23 @@
 <%- include('../partials/nav') %>
 
 <section>
-  <h1>Edit your entry </h1>
-  <form 
-    action="/entries/<%= entry._id %>?_method=PUT"
-    method="POST"
-  >
+  <h1>Edit your activity </h1>
+<section>
+  <form action="/activities/<%= activity._id %>?_method=PUT" method="POST">
+    <div>
+            <label for=" content-textarea" class="review-label">Type Activity Here:</label>
+            <input type="textarea" name="name" value="<%= activity.name %> " id="activity-name">
+          </div>
+          <label for="activity-type">Activity Type:</label>
+          <select name="type" id="activity-type">
+            <option value="Physical">Physical</option>
+            <option value="Mental">Mental</option>
+            <option value="Spiritual">Spiritual</option>
+            <option value="Psycological">Psycological</option>
+          </select>
 
-  
-    <section>
-      <form 
-        action="/entries/<%= entry._id %>?_method=PUT"
-        method="POST"
-      >
-      <div>
-        <label for=" content-textarea" class="review-label">Type Entry Here:</label> 
-      </div>
-      <label>
-        <textarea 
-          type="text"
-          name="name" 
-          autocomplete="off"
-        ><%= entry.name %></textarea>
-      </label>
-      <label for="mood-rating">Rate Your Mood:</label>
-        <select name="mood" id="mood-rating">  
-        <option value="none" selected disabled hidden><%= entry.mood %> </option>
-        <option value="Happy">Happy</option>
-        <option value="Content">Content</option>
-        <option value="Sad">Sad</option>
-        </select>
-      
-    
-
-    <button type="submit">Edit your entry</button>
+          <button type="submit">Edit your activity</button>
   </form>
 </section>
 
-<%- include('../partials/footer') %>
+      <%- include('../partials/footer') %>

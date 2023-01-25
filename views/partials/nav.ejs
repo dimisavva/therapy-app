@@ -1,35 +1,25 @@
-  <% if (!user) { %>
-    <script defer src="https://accounts.google.com/gsi/client"></script>
+<% if (!user) { %>
+  <script defer src="https://accounts.google.com/gsi/client"></script>
   <% } %>
-</head>
-<body>
-  <nav>
-    <% if (user) { %>
-    <div class="links-container">
-      <a href="/"> HOME </a> 
-      <a href="/entries"> ENTRIES </a> 
-      <a href="/activities"> ACTIVITIES </a> 
-    </div>
-      <% } %>
-  <% if (user) { %>
-      <a href="/auth/logout" class="right">
-        <button type="submit">Logout</button>
-      </a>
-    <% } else { %>
-      <div 
-        id="g_id_onload"
-        data-client_id="<%= googleClientID %>"
-        data-login_uri="/auth/google"
-        data-auto_prompt="false"
-      ></div>
-      <div 
-        class="g_id_signin right"
-        data-type="standard"
-        data-size="large"
-        data-theme="outline"
-        data-text="sign_in_with"
-        data-shape="rectangular"
-        data-logo_alignment="left"
-      ></div>
-    <% } %>
-  </nav>
+    </head>
+
+    <body>
+      <nav>
+        <% if (user) { %>
+          <div class="links-container">
+            <a href="/"> HOME </a>
+            <a href="/entries"> ENTRIES </a>
+            <a href="/activities"> ACTIVITIES </a>
+          </div>
+          <% } %>
+            <% if (user) { %>
+              <a href="/auth/logout" class="right">
+                <button id="logout" type="submit">Logout</button>
+              </a>
+              <% } else { %>
+                <div id="g_id_onload" data-client_id="<%= googleClientID %>" data-login_uri="/auth/google"
+                  data-auto_prompt="false"></div>
+                <div class="g_id_signin right" data-type="standard" data-size="large" data-theme="outline"
+                  data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left"></div>
+                <% } %>
+      </nav>

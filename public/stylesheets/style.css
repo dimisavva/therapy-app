@@ -20,6 +20,40 @@ body {
   margin: 0;
 }
 
+.entry-details{
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  background-color: #f6f6f6;
+  color: #1a1a1a;
+  border-radius: 5px;
+  height: auto;
+  padding: 10px;
+  }
+
+.activity-details{
+margin: auto;
+width: 50%;
+text-align: center;
+background-color: #f6f6f6;
+color: #1a1a1a;
+border-radius: 5px;
+height: auto;
+padding: 10px;
+}
+
+button {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: white;
+
+}
+
+#logout{
+background-color: #6392df;
+color: white;
+}
+
 nav {
   background-color: #f6f6f6;
   color: #1a1a1a;
