@@ -7,7 +7,7 @@ The inspiration for this type of app comes from my daily digital mind log where 
 
 Planning materials and wireframes can be found [here](https://trello.com/b/CT0zC3vH/medical-chart-therapy-log)
 ## Technologies Used
-* Express
+* Express.js
 * Node.js
 * Mongoose
 * MongoDB
